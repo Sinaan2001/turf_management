@@ -1,0 +1,153 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<html lang="zxx">
+
+<head>
+	<title>register</title>
+	<style>
+		  #map {
+			height: 600px;
+			width: 100%;
+		  }
+		</style>
+	<!-- Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Particles Login Form Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta-Tags -->
+	<!-- Stylesheets -->
+	<link href="../static/login/css/style.css" rel='stylesheet' type='text/css' />
+	<!-- online fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Amiri:400,400i,700,700i" rel="stylesheet">
+</head>
+
+<body>
+	<!--  particles  -->
+	<div id="particles-js"></div>
+	<!-- //particles -->
+	<div class="w3ls-pos">
+		<h1>SELECT LOCATION</h1>
+		<div class="w3ls-login box">
+			<!-- form starts here -->
+			<form action="/reg1" method="post">
+
+				<div class="agile-field-txt">
+					<input type="text" name="lati" id="lat" placeholder="LATITUDE" required="" />
+				</div>
+				<div class="agile-field-txt">
+					<input type="text" name="longi" id="lon" placeholder="LONGITUDE" required="" />
+				</div>
+
+				<div class="w3ls-bot">
+					<input type="submit" value="REGISTER">
+				</div>
+
+
+
+			</form>
+
+		</div>
+		<!-- //form ends here -->
+		<!--copyright-->
+		<!--<div class="copy-wthree">-->
+			<!--<p>-->
+				<!--<a href="/Registeration">TURF REGISTRATION</a>-->
+			<!--</p>-->
+		<!--</div>-->
+		<!--//copyright-->
+	</div>
+	<div style="padding:10px">
+			<div id="map"></div>
+		</div>
+	<!-- scripts required  for particle effect -->
+	<script src='../static/login/js/particles.min.js'></script>
+	<script src="../static/login/js/index.js"></script>
+		<script type="text/javascript">
+		var map;
+
+		function initMap() {
+			var latitude = 11.344895078472197; // YOUR LATITUDE VALUE
+			var longitude = 75.92013925825333; // YOUR LONGITUDE VALUE
+
+			var myLatLng = {lat: latitude, lng: longitude};
+
+			map = new google.maps.Map(document.getElementById('map'), {
+			  center: myLatLng,
+			  zoom: 14,
+			  disableDoubleClickZoom: true, // disable the default map zoom on double click
+			});
+
+			// Update lat/long value of div when anywhere in the map is clicked
+			google.maps.event.addListener(map,'click',function(event) {
+
+                document.getElementById('lat').value = event.latLng.lat();
+
+                document.getElementById('lon').value =  event.latLng.lng();
+            });
+
+            // Update lat/long value of div when you move the mouse over the map
+            google.maps.event.addListener(map,'mousemove',function(event) {
+
+            });
+
+			var marker = new google.maps.Marker({
+			  position: myLatLng,
+			  map: map,
+			  //title: 'Hello World'
+
+			  // setting latitude & longitude as title of the marker
+			  // title is shown when you hover over the marker
+			  title: latitude + ', ' + longitude
+			});
+
+			// Update lat/long value of div when the marker is clicked
+			marker.addListener('click', function(event) {
+			  <!--document.getElementById('latclicked').innerHTML = event.latLng.lat();-->
+              <!--document.getElementById('longclicked').innerHTML =  event.latLng.lng();-->
+			});
+
+			// Create new marker on double click event on the map
+			google.maps.event.addListener(map,'dblclick',function(event) {
+                var marker = new google.maps.Marker({
+				  position: event.latLng,
+				  map: map,
+				  title: event.latLng.lat()+', '+event.latLng.lng()
+				});
+
+				// Update lat/long value of div when the marker is clicked
+				marker.addListener('click', function() {
+				  document.getElementById('latclicked').innerHTML = event.latLng.lat();
+				  document.getElementById('longclicked').innerHTML =  event.latLng.lng();
+				});
+            });
+
+            // Create new marker on single click event on the map
+			/*google.maps.event.addListener(map,'click',function(event) {
+                var marker = new google.maps.Marker({
+				  position: event.latLng,
+				  map: map,
+				  title: event.latLng.lat()+', '+event.latLng.lng()
+				});
+            });*/
+		}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+		async defer></script>
+	<!-- //scripts required for particle effect -->
+</body>
+
+</html>

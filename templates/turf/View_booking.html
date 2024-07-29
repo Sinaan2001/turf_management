@@ -1,0 +1,28 @@
+{% extends 'turf/turf_index.html' %}
+{% block body %}
+<body>
+  <table class="table table-hover">
+  <tr>
+    <th>#</th>
+    <th>NAME</th>
+    <th>SLOT</th>
+    <th>DATE</th>
+    <th colspan="2">STATUS</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['f_name'] }} {{ i['l_name'] }}</td>
+    <td>{{ i['slot'] }}</td>
+    <td>{{ i['date'] }}</td>
+      {% if i['status']=='pending' %}
+    <td><a href="/accept_booking?id={{ i['b_id'] }}">ACCEPT</a> </td>
+    <td><a href="/reject_booking?id={{ i['b_id'] }}">REJECT</a> </td>
+  {% else %}
+  <td colspan="2" align="center">{{ i['status'] }}</td>
+  {% endif %}
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

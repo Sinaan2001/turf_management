@@ -1,0 +1,26 @@
+{% extends 'turf/turf_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/rate_info_post">
+  <table class="table table-hover">
+    <tr>
+      <td>Rate</td>
+      <td><input type="text" name="textfield" /></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>
+      <select name="textfield2">
+        <option>Football 5s</option>
+        <option>Football 7s</option>
+        <option>Cricket</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input name="submit" type="submit" id="submit" value="Add" />
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

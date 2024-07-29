@@ -1,0 +1,33 @@
+{% extends 'admin/aindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-hover">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th >Address</th>
+      <th>Phone</th>
+{#      <th>Latitude</th>#}
+{#      <th>Longitude</th>#}
+      <td >&nbsp;</td>
+    </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['t_name'] }}</td>
+    <td>{{ i['e_mail'] }}</td>
+    <td><b>PLACE </b>{{ i['place'] }}<br />
+        <b>POST </b>{{ i['post'] }}<br />
+      <b>PIN </b>{{ i['pin'] }}<br /></td>
+    <td>{{ i['phone'] }}</td>
+{#    <td>{{ i['latitude'] }}</td>#}
+{#    <td>{{ i['longitude'] }}</td>#}
+    <!--<td><a href="/View_Facility?id={{ i['l_id'] }}">FACILITY</a></td>-->
+  </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

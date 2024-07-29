@@ -1,0 +1,22 @@
+{% extends 'admin/aindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-hover">
+    <tr>
+	<th>#</th>
+      <th>FACILITY</th>
+      <tH>DESCRIPTION</tH>
+    </tr>
+      {% for i in data %}
+    <tr>
+	<td>{{ loop.index }}</td>
+      <td>{{ i['facility'] }}</td>
+      <td>{{ i['description'] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

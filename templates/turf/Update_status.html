@@ -1,0 +1,24 @@
+{% extends 'turf/turf_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-hover">
+    <tr>
+      <th scope="row">CURRENT STATUS </th>
+      <td><input readonly="" type="text" name="textfield" /></td>
+    </tr>
+    <tr>
+      <th scope="row">STATUS</th>
+      <td><input name="radiobutton" type="radio" value="radiobutton" />
+OPEN 
+  <input name="radiobutton" type="radio" value="radiobutton" /> 
+  CLOSED </td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="Submit" value="UPDATE" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

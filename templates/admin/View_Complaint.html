@@ -1,0 +1,43 @@
+{% extends 'admin/aindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/View_turf_Complaint">
+  <table class="table table-hover">
+    <tr>
+      <td>TURF</td>
+      <td colspan="3"><select name="select">
+      <option>SELECT</option>
+          {% for i in data %}
+          <option value="{{ i['l_id'] }}">{{ i['t_name'] }}</option>
+          {% endfor %}
+        </select>
+      </td>
+      <td><input type="submit" name="Submit" value="SEARCH" />
+      </td>
+    </tr>
+    <tr>
+        <th>#</th>
+      <th>Username</th>
+      <th>Complaint</th>
+      <th>Date</th>
+      <th>Reply</th>
+    </tr>
+  {% for i in val %}
+    <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['f_name'] }} {{ i['l_name'] }}</td>
+      <td>{{ i['complaint'] }}</td>
+      <td>{{ i['date'] }}</td>
+        {% if i['reply']=='pending' %}
+      <td><a href="/Send_Reply?id={{ i['c_id'] }}">Reply</a></td>
+    {% else %}
+    <td>{{ i['reply'] }}</td>
+    {% endif %}
+    </tr>
+  {% endfor %}
+  </table>
+</form>
+</body>
+
+{% endblock %}
